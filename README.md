@@ -1,4 +1,4 @@
-📬 ColdReach – Automated Cold Email Sender for Internships
+ # 📬 ColdReach – Automated Cold Email Sender for Internships
 
 ColdReach is a Streamlit-based tool that simplifies cold emailing for internship applications. It allows you to send personalized, professional emails with resume attachments to multiple companies efficiently, saving time and effort while keeping your outreach polished.
 
