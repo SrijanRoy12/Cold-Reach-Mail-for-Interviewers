@@ -1,23 +1,16 @@
-📬 ColdReach – Internship Cold Email Automation
+# 📬 ColdReach – Internship Cold Email Automation
 
 ColdReach is a lightweight, Streamlit-powered application that helps students and professionals send personalized cold emails for internship opportunities. With built-in Gmail integration, resume attachments, and Excel-based bulk sending, it streamlines outreach so you can focus on landing interviews instead of managing emails.
 
 🌟 Key Features
 
 📝 Customizable Templates – Write once, personalize for everyone using Jinja2 variables
-
 📊 Excel Upload – Import recipient data for bulk emailing
-
 📎 Resume Auto-Attach – Attach your PDF resume to all outgoing emails
-
 🔒 Secure Gmail Login – Uses App Passwords with 2FA (never stores credentials)
-
 📈 Progress Dashboard – Track emails sent in real-time with visual feedback
-
 ⚡ Rate Limiting – Enforces Gmail’s 200 emails/day cap to avoid spam flags
-
 🎯 Dynamic Personalization – Each recipient gets a uniquely tailored message
-
 📱 Responsive UI – Clean, intuitive design built with Streamlit
 
 🚀 Quick Start
