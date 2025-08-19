@@ -1,0 +1,22 @@
+Subject: Application for Full Stack Web Developer Internship: {{your_name}}
+
+Dear {{title}},
+
+I am {{your_name}}, a final-year Computer Science student at {{university}} and an experienced Full Stack Web Developer. I am writing to express my strong interest in the Full Stack Developer position at {{company}}.
+
+With expertise in both frontend (React.js, JavaScript, HTML5, CSS3) and backend (Node.js,  SQL) development, I have successfully:
+- Built responsive web applications with modern UI/UX principles
+- Developed RESTful APIs and microservices
+- Implemented database solutions using SQL and NoSQL technologies
+
+Throughout my academic journey at {{university}}, I've combined theoretical knowledge with practical experience, maintaining a strong academic performance while working on real-world projects. You can review my technical projects on my portfolio ({{portfolio_link}}) and Github ({{github}}).
+
+I would welcome the opportunity to discuss how my full-stack development experience and academic background align with {{company}}'s needs.
+
+Best regards,
+{{your_name}}
+Phone: {{phone}}
+Email: {{email}}
+LinkedIn: {{linkedin}}
+Github: {{github}}
+Portfolio: {{portfolio_link}}
