@@ -1,230 +1,186 @@
-# 📬 ColdReach - Cold Email Sender for Internships
+📬 ColdReach – Internship Cold Email Automation
 
-A streamlined Streamlit application that automates personalized cold email sending for internship applications. Send professional, customized emails with resume attachments to multiple companies efficiently.
+ColdReach is a lightweight, Streamlit-powered application that helps students and professionals send personalized cold emails for internship opportunities. With built-in Gmail integration, resume attachments, and Excel-based bulk sending, it streamlines outreach so you can focus on landing interviews instead of managing emails.
 
-## 🌟 Features
+🌟 Key Features
 
-- **📝 Customizable Email Templates**: Edit and preview email templates with Jinja2 variables
-- **📊 Excel Integration**: Upload Excel files with recipient data for bulk email sending
-- **📎 Resume Attachment**: Automatically attach your PDF resume to all emails
-- **🔒 Secure Gmail Integration**: Uses Gmail App Passwords for secure authentication
-- **📈 Real-time Progress Tracking**: Monitor email sending progress with visual feedback
-- **⚡ Rate Limiting**: Built-in daily email limit (200 emails) to prevent spam
-- **🎯 Personalization**: Dynamic content replacement for each recipient
-- **📱 Responsive UI**: Clean, intuitive interface built with Streamlit
+📝 Customizable Templates – Write once, personalize for everyone using Jinja2 variables
 
-## 🚀 Quick Start
+📊 Excel Upload – Import recipient data for bulk emailing
 
-### Prerequisites
+📎 Resume Auto-Attach – Attach your PDF resume to all outgoing emails
 
-- Python 3.7 or higher
-- Gmail account with 2-Factor Authentication enabled
-- Gmail App Password (16-character password)
+🔒 Secure Gmail Login – Uses App Passwords with 2FA (never stores credentials)
 
-### Installation
+📈 Progress Dashboard – Track emails sent in real-time with visual feedback
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/AbhirupDey/ColdReach.git
-   cd ColdReach
-   ```
+⚡ Rate Limiting – Enforces Gmail’s 200 emails/day cap to avoid spam flags
 
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+🎯 Dynamic Personalization – Each recipient gets a uniquely tailored message
 
-3. **Run the application**:
-   ```bash
-   streamlit run main.py
-   ```
+📱 Responsive UI – Clean, intuitive design built with Streamlit
 
-4. **Access the app**: Open your browser to `http://localhost:8501`
+🚀 Quick Start
+Prerequisites
 
-## 📋 Gmail Setup Guide
+Python 3.7+
 
-### Enable App Passwords (Required)
+Gmail account with 2FA enabled
 
-1. **Enable 2-Factor Authentication** on your Gmail account
-2. **Generate App Password**:
-   - Go to [Google Account Security](https://myaccount.google.com/security)
-   - Navigate to **2-Step Verification**
-   - Scroll down to **App passwords**
-   - Generate a new password for "Mail"
-   - Copy the **16-character password** (no spaces)
+Gmail App Password (16 characters, generated once)
 
-3. **Alternative direct link**: [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+Installation
+git clone https://github.com/AbhirupDey/ColdReach.git
+cd ColdReach
+pip install -r requirements.txt
 
-⚠️ **Important**: Use the App Password in the application, NOT your regular Gmail password.
+Run the App
+streamlit run main.py
 
-## 📊 Excel File Format
 
-Create an Excel file (`.xlsx`) with the following columns:
+Access at 👉 http://localhost:8501
 
-| Column Name | Required | Description |
-|-------------|----------|-------------|
-| `Name` | ✅ Yes | Recipient's full name |
-| `Email` | ✅ Yes | Recipient's email address |
-| `Company` | ✅ Yes | Company name |
-| `Title` | ❌ No | Job title (defaults to "Hiring Manager") |
+📋 Gmail Setup (Required)
 
-### Example Excel Structure:
-```
-Name          | Email                    | Company    | Title
-John Smith    | john@techcorp.com       | TechCorp   | HR Manager
-Jane Doe      | jane@startupxyz.com     | StartupXYZ | CTO
-```
+Enable 2-Step Verification on your Google account.
 
-## 🎯 Template Variables
+Navigate to Google Account → Security → App passwords
 
-The email template supports the following Jinja2 variables:
+Generate a new App Password for "Mail".
 
-### Your Information:
-- `{{your_name}}` - Your full name
-- `{{university}}` - Your university name
-- `{{phone}}` - Your phone number
-- `{{email}}` - Your email address
-- `{{linkedin}}` - Your LinkedIn profile URL
-- `{{github}}` - Your GitHub profile URL
-- `{{portfolio_link}}` - Your portfolio website URL
+Use this 16-character password in ColdReach instead of your Gmail password.
 
-### Recipient Information:
-- `{{name}}` - Recipient's name (from Excel)
-- `{{company}}` - Company name (from Excel)
-- `{{title}}` - Job title (from Excel, defaults to "Hiring Manager")
+🔗 Direct link: Generate Gmail App Password
 
-### Example Template Usage:
-```
-Subject: Application for Full Stack Developer Internship - {{your_name}}
+📊 Excel File Format
+
+Your Excel sheet (.xlsx) should include:
+
+Column	Required	Description
+Name	✅ Yes	Recipient’s full name
+Email	✅ Yes	Recipient’s email address
+Company	✅ Yes	Target company name
+Title	❌ No	Job title (defaults to Hiring Manager)
+
+Example:
+
+Name        | Email                | Company    | Title
+John Smith  | john@techcorp.com    | TechCorp   | HR Manager
+Jane Doe    | jane@startupxyz.com  | StartupXYZ | CTO
+
+🎯 Template Variables
+
+Available variables for your email:
+
+Your Info
+
+{{your_name}}, {{university}}, {{phone}}, {{email}},
+
+{{linkedin}}, {{github}}, {{portfolio_link}}
+
+Recipient Info
+
+{{name}}, {{company}}, {{title}}
+
+Sample Email Template:
+
+Subject: Internship Application – {{your_name}}
 
 Dear {{title}},
 
-My name is {{your_name}}, a Computer Science student at {{university}}. 
-I'm interested in internship opportunities at {{company}}.
+My name is {{your_name}}, a Computer Science student at {{university}}.  
+I’m reaching out to explore internship opportunities at {{company}}.  
 
-Best regards,
-{{your_name}}
+Best regards,  
+{{your_name}}  
 {{phone}} | {{email}}
-```
 
-## 🏗️ Project Structure
-
-```
+🏗️ Project Structure
 ColdReach/
-├── main.py                 # Main Streamlit application
-├── email_sender.py         # Email sending functionality
-├── requirements.txt        # Python dependencies
+├── main.py                 # Streamlit application
+├── email_sender.py         # Email sending logic
+├── requirements.txt        # Dependencies
 ├── templates/
-│   └── email_template.txt  # Default email template
+│   └── email_template.txt  # Default template
 ├── src/
-│   └── app.py             # Alternative Tkinter GUI (optional)
-└── README.md              # Project documentation
-```
+│   └── app.py              # Optional Tkinter GUI
+└── README.md               # Documentation
 
-## 🔧 Core Components
+⚙️ How It Works
 
-### [`main.py`](main.py)
-- Streamlit web interface
-- Template editor and preview
-- File upload handling
-- Progress tracking and error handling
+Fill Sidebar Details – Gmail, App Password, personal info, resume (PDF)
 
-### [`email_sender.py`](email_sender.py)
-- Gmail SMTP integration
-- Email composition with attachments
-- Authentication and error handling
-- Template rendering with Jinja2
+Customize Template – Edit and preview emails in the app
 
-### [`templates/email_template.txt`](templates/email_template.txt)
-- Default email template
-- Customizable through the web interface
-- Supports Jinja2 variable substitution
+Upload Excel File – Recipient list with required columns
 
-## ⚙️ Usage Instructions
+Send Emails – Start bulk sending and monitor progress
 
-1. **Fill Personal Information** (Sidebar):
-   - Gmail address and App Password
-   - Personal details (name, university, contact info)
-   - Upload your resume (PDF format)
+🛡️ Security
 
-2. **Customize Email Template**:
-   - Edit the template in the main interface
-   - Use `{{variable}}` format for dynamic content
-   - Save changes to persist modifications
+App Password login (never saves your real Gmail password)
 
-3. **Upload Recipient Data**:
-   - Prepare Excel file with required columns
-   - Upload through the file uploader
-   - Review recipient list with pagination
+Session-only credentials (not stored anywhere)
 
-4. **Send Emails**:
-   - Click "Send Emails" button
-   - Monitor real-time progress
-   - Review success/failure reports
+Auto cleanup of uploaded files
 
-## 🛡️ Security Features
+Daily rate limit (200 emails/day)
 
-- **App Password Authentication**: Secure Gmail integration
-- **No Password Storage**: Credentials entered per session
-- **Rate Limiting**: Maximum 200 emails per day
-- **Temporary File Cleanup**: Resume files automatically deleted
-- **Error Handling**: Detailed error messages for troubleshooting
+Detailed error handling for failed sends
 
-## 🚫 Limitations
+🚫 Limitations
 
-- **Daily Email Limit**: 200 emails maximum (configurable in `MAX_EMAILS_PER_DAY`)
-- **File Size**: Resume attachments should be under 25MB
-- **Gmail Only**: Currently supports Gmail SMTP only
-- **Internet Required**: Needs active internet connection for email sending
+Daily cap: 200 emails/day (can be adjusted)
 
-## 🔍 Troubleshooting
+Resume file < 25 MB
 
-### Common Issues:
+Currently supports Gmail only
 
-**Authentication Error**:
-- Ensure 2-Factor Authentication is enabled
-- Use App Password, not regular Gmail password
-- Generate a new App Password if needed
+Requires internet connection
 
-**File Upload Issues**:
-- Check Excel file format (.xlsx only)
-- Verify required columns exist
-- Ensure file size is reasonable
+🔍 Troubleshooting
 
-**Email Sending Failures**:
-- Check internet connection
-- Verify recipient email addresses
-- Review Gmail sending limits
+Auth errors? Use App Password (not Gmail password), check 2FA
 
-## 🤝 Contributing
+File upload errors? Ensure .xlsx format with required columns
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Sending failures? Check internet connection + Gmail limits
 
-## 📄 License
+🤝 Contributing
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Fork the repo
 
-## 🙏 Acknowledgments
+Create a branch (git checkout -b feature/my-feature)
 
-- Built with [Streamlit](https://streamlit.io/)
-- Email templating powered by [Jinja2](https://jinja.palletsprojects.com/)
-- Excel processing with [pandas](https://pandas.pydata.org/) and [openpyxl](https://openpyxl.readthedocs.io/)
+Commit changes (git commit -m "Add feature")
 
-## 📞 Support
+Push (git push origin feature/my-feature)
 
-If you encounter any issues or have questions:
+Open a Pull Request
 
-1. Check the troubleshooting section above
-2. Review Gmail App Password setup
-3. Create an issue on GitHub
-4. Ensure all dependencies are properly installed
+📜 License
 
----
+MIT License – see LICENSE
+ for details.
 
-⭐ **Star this repository if you find it helpful!**
+🙏 Acknowledgments
 
-*Made with ❤️ for students seeking internships*
+Streamlit
+ for the UI
+
+Jinja2
+ for templating
+
+pandas
+ & openpyxl
+ for Excel handling
+
+📞 Support
+
+Check Troubleshooting above
+
+File an issue in GitHub Issues
+
+Reinstall dependencies if errors persist
+
+⭐ If you find this project helpful, don’t forget to star the repo!
