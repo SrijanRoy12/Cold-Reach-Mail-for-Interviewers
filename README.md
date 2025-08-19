@@ -1,26 +1,26 @@
-# 📬 ColdReach – Internship Cold Email Automation
+📬 ColdReach – Automated Cold Email Sender for Internships
 
-ColdReach is a lightweight, Streamlit-powered application that helps students and professionals send personalized cold emails for internship opportunities. With built-in Gmail integration, resume attachments, and Excel-based bulk sending, it streamlines outreach so you can focus on landing interviews instead of managing emails.
+ColdReach is a Streamlit-based tool that simplifies cold emailing for internship applications. It allows you to send personalized, professional emails with resume attachments to multiple companies efficiently, saving time and effort while keeping your outreach polished.
 
-🌟 Key Features
+🌟 Features
 
-📝 Customizable Templates – Write once, personalize for everyone using Jinja2 variables
-📊 Excel Upload – Import recipient data for bulk emailing
-📎 Resume Auto-Attach – Attach your PDF resume to all outgoing emails
-🔒 Secure Gmail Login – Uses App Passwords with 2FA (never stores credentials)
-📈 Progress Dashboard – Track emails sent in real-time with visual feedback
-⚡ Rate Limiting – Enforces Gmail’s 200 emails/day cap to avoid spam flags
-🎯 Dynamic Personalization – Each recipient gets a uniquely tailored message
-📱 Responsive UI – Clean, intuitive design built with Streamlit
+📝 Customizable Templates – Edit and preview emails using Jinja2 variables
+📊 Excel Integration – Upload recipient data for bulk sending
+📎 Resume Attachment – Automatically attach your resume (PDF)
+🔒 Secure Gmail Login – Uses Gmail App Passwords (2FA required)
+📈 Live Progress Tracking – Visual feedback for email status
+⚡ Rate Limiting – Restricts to 200 emails/day to avoid spam
+🎯 Personalization – Dynamic content for each recipient
+📱 Responsive UI – Simple and clean interface built with Streamlit
 
 🚀 Quick Start
 Prerequisites
 
 Python 3.7+
 
-Gmail account with 2FA enabled
+Gmail account with 2-Factor Authentication enabled
 
-Gmail App Password (16 characters, generated once)
+Gmail App Password (16-character password)
 
 Installation
 git clone https://github.com/AbhirupDey/ColdReach.git
@@ -31,31 +31,35 @@ Run the App
 streamlit run main.py
 
 
-Access at 👉 http://localhost:8501
+Open in browser: http://localhost:8501
 
-📋 Gmail Setup (Required)
+📋 Gmail Setup Guide
 
-Enable 2-Step Verification on your Google account.
+To use ColdReach, you must generate a Gmail App Password:
 
-Navigate to Google Account → Security → App passwords
+Enable 2-Factor Authentication in your Google account
 
-Generate a new App Password for "Mail".
+Go to Google Account → Security → App passwords
 
-Use this 16-character password in ColdReach instead of your Gmail password.
+Create a new App Password for Mail
+
+Copy the 16-character password (without spaces)
 
 🔗 Direct link: Generate Gmail App Password
 
+⚠️ Use this password in the app, not your regular Gmail password.
+
 📊 Excel File Format
 
-Your Excel sheet (.xlsx) should include:
+Your Excel sheet (.xlsx) should include these columns:
 
 Column	Required	Description
 Name	✅ Yes	Recipient’s full name
 Email	✅ Yes	Recipient’s email address
-Company	✅ Yes	Target company name
+Company	✅ Yes	Company name
 Title	❌ No	Job title (defaults to Hiring Manager)
 
-Example:
+Example File:
 
 Name        | Email                | Company    | Title
 John Smith  | john@techcorp.com    | TechCorp   | HR Manager
@@ -63,11 +67,11 @@ Jane Doe    | jane@startupxyz.com  | StartupXYZ | CTO
 
 🎯 Template Variables
 
-Available variables for your email:
+You can use the following Jinja2 variables in your templates:
 
 Your Info
 
-{{your_name}}, {{university}}, {{phone}}, {{email}},
+{{your_name}}, {{university}}, {{phone}}, {{email}}
 
 {{linkedin}}, {{github}}, {{portfolio_link}}
 
@@ -75,14 +79,14 @@ Recipient Info
 
 {{name}}, {{company}}, {{title}}
 
-Sample Email Template:
+Example Template
 
 Subject: Internship Application – {{your_name}}
 
 Dear {{title}},
 
 My name is {{your_name}}, a Computer Science student at {{university}}.  
-I’m reaching out to explore internship opportunities at {{company}}.  
+I’m writing to express interest in internship opportunities at {{company}}.  
 
 Best regards,  
 {{your_name}}  
@@ -90,7 +94,7 @@ Best regards,
 
 🏗️ Project Structure
 ColdReach/
-├── main.py                 # Streamlit application
+├── main.py                 # Streamlit interface
 ├── email_sender.py         # Email sending logic
 ├── requirements.txt        # Dependencies
 ├── templates/
@@ -99,81 +103,84 @@ ColdReach/
 │   └── app.py              # Optional Tkinter GUI
 └── README.md               # Documentation
 
-⚙️ How It Works
+⚙️ Usage
 
-Fill Sidebar Details – Gmail, App Password, personal info, resume (PDF)
+Fill Personal Info (Sidebar) – Gmail, App Password, personal details, resume
 
-Customize Template – Edit and preview emails in the app
+Edit Email Template – Customize using {{variables}}
 
-Upload Excel File – Recipient list with required columns
+Upload Excel File – With required recipient columns
 
-Send Emails – Start bulk sending and monitor progress
+Send Emails – Start bulk sending & track progress live
 
 🛡️ Security
 
-App Password login (never saves your real Gmail password)
+Secure Gmail authentication via App Passwords
 
-Session-only credentials (not stored anywhere)
+No password storage (credentials live only per session)
 
-Auto cleanup of uploaded files
+Resume files cleaned up automatically
 
-Daily rate limit (200 emails/day)
+Daily sending cap (200 emails/day)
 
-Detailed error handling for failed sends
+Error handling for failed deliveries
 
 🚫 Limitations
 
-Daily cap: 200 emails/day (can be adjusted)
+Daily limit: 200 emails/day
 
-Resume file < 25 MB
+Resume file size must be < 25 MB
 
-Currently supports Gmail only
+Supports Gmail only
 
 Requires internet connection
 
 🔍 Troubleshooting
 
-Auth errors? Use App Password (not Gmail password), check 2FA
+Authentication issues? → Enable 2FA + use App Password (not Gmail password)
 
-File upload errors? Ensure .xlsx format with required columns
+Excel errors? → Ensure .xlsx format with required columns
 
-Sending failures? Check internet connection + Gmail limits
+Email not sent? → Check internet, recipient email, Gmail limits
 
 🤝 Contributing
 
-Fork the repo
+Fork the repository
 
-Create a branch (git checkout -b feature/my-feature)
+Create a new branch:
 
-Commit changes (git commit -m "Add feature")
+git checkout -b feature/my-feature
 
-Push (git push origin feature/my-feature)
 
-Open a Pull Request
+Commit changes:
+
+git commit -m "Add new feature"
+
+
+Push and open a Pull Request
 
 📜 License
 
-MIT License – see LICENSE
- for details.
+This project is licensed under the MIT License – see the LICENSE
+ file.
 
 🙏 Acknowledgments
 
-Streamlit
- for the UI
+Built with Streamlit
 
-Jinja2
- for templating
+Templates powered by Jinja2
 
-pandas
- & openpyxl
- for Excel handling
+Excel support with pandas
+ and openpyxl
 
 📞 Support
 
-Check Troubleshooting above
+See Troubleshooting section
 
-File an issue in GitHub Issues
+Open an Issue on GitHub
 
-Reinstall dependencies if errors persist
+Verify dependencies are installed
 
-⭐ If you find this project helpful, don’t forget to star the repo!
+⭐ If you found ColdReach useful, don’t forget to star the repo!
+
+Made with ❤️ to help students land internships 🚀
